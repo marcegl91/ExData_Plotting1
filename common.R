@@ -19,6 +19,7 @@ common <- function() {
 	epc <- read.table("data/household_power_consumption.txt", skip = 66637, nrows = 2880, sep =';', stringsAsFactors = FALSE, header = FALSE, na.strings = "?")
 	colnames(epc) <- header
 
+	epc$Time <- strptime(paste(epc$Date, epc$Time), format="%d/%m/%Y %H:%M:%S") 
 	epc$Date <- as.Date(epc$Date, format = "%d/%m/%Y")
 	##Maybe use chron package
 	## epc$Time <- strptime(epc$Time, format = "%H:%M:%S")
