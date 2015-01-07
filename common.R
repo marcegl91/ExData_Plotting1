@@ -6,7 +6,7 @@ common <- function() {
   
 	if(!file.exists("data/exdata-data-household_power_consumption.zip")){
     		writeLines("Downloading necessary files...")
-    		fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata data household_power_consumption.zip"
+    		fileUrl <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
     		download.file(fileUrl, destfile ="data/exdata-data-household_power_consumption.zip", method = "curl")
 	} else writeLines("Zip file exists") 
 
@@ -21,7 +21,5 @@ common <- function() {
 
 	epc$Time <- strptime(paste(epc$Date, epc$Time), format="%d/%m/%Y %H:%M:%S") 
 	epc$Date <- as.Date(epc$Date, format = "%d/%m/%Y")
-	##Maybe use chron package
-	## epc$Time <- strptime(epc$Time, format = "%H:%M:%S")
 	return(epc)
 }

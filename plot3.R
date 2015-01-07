@@ -5,7 +5,7 @@ if(!file.exists("common.R")) {
 
 source("common.R")
 epc <- common()                                                                                                         
-png(filename = "../Web/plot3.png", width = 480, height = 480)
+png(filename = "plot3.png", width = 480, height = 480)
 
 plot(epc$Time, epc$Sub_metering_1, pch = 15, type= "l", xlab = "", ylab = "Enery sub metering")
 points(epc$Time, epc$Sub_metering_2, col = "red", type = "l", pch = 15)
